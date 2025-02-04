@@ -7,12 +7,13 @@ export default function register({
   email: string;
   password: string;
 }) {
+  console.log(password.replace(/./g, "*"));
+
   localStorage.setItem(
     "loginInfo",
     JSON.stringify({
       username,
       email,
-      password,
     })
   );
 }

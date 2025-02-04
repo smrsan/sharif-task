@@ -5,11 +5,12 @@ export default function login({
   username: string;
   password: string;
 }) {
+  console.log(password.replace(/./g, "*"));
+
   localStorage.setItem(
     "loginInfo",
     JSON.stringify({
       username,
-      password,
     })
   );
 }
