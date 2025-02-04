@@ -2,6 +2,7 @@ import isLogin from "@/helpers/isLogin";
 import { Container } from "@mui/material";
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router";
+import TopBar from "@/components/TopBar";
 
 const DashboardLayout = () => {
   const nav = useNavigate();
@@ -17,11 +18,9 @@ const DashboardLayout = () => {
       sx={{
         minHeight: "100vh",
         bgcolor: (theme) => theme.palette.grey[200],
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
+      <TopBar />
       <Outlet />
     </Container>
   );
