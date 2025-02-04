@@ -1,3 +1,3 @@
 export default function logout() {
-  localStorage.clear();
+  localStorage.removeItem("loginInfo");
 }

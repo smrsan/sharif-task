@@ -7,7 +7,12 @@ export default function register({
   email: string;
   password: string;
 }) {
-  localStorage.setItem("username", username);
-  localStorage.setItem("email", email);
-  localStorage.setItem("password", password);
+  localStorage.setItem(
+    "loginInfo",
+    JSON.stringify({
+      username,
+      email,
+      password,
+    })
+  );
 }

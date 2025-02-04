@@ -5,6 +5,11 @@ export default function login({
   username: string;
   password: string;
 }) {
-  localStorage.setItem("username", username);
-  localStorage.setItem("password", password);
+  localStorage.setItem(
+    "loginInfo",
+    JSON.stringify({
+      username,
+      password,
+    })
+  );
 }
