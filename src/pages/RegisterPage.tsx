@@ -1,12 +1,13 @@
 import { ChangeEventHandler, useCallback, useState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router";
 import { Box, Button, Link, Paper, TextField } from "@mui/material";
-import login from "@/helpers/login";
+import register from "@/helpers/register";
 
-function LoginPage() {
+function RegisterPage() {
   const nav = useNavigate();
   const [formValues, setFormValues] = useState({
     username: "",
+    email: "",
     password: "",
   });
 
@@ -19,8 +20,8 @@ function LoginPage() {
     }));
   }, []);
 
-  const handleLogin = useCallback(async () => {
-    login(formValues);
+  const handleRegister = useCallback(async () => {
+    register(formValues);
     nav("/dashboard");
   }, [formValues, nav]);
 
@@ -44,6 +45,15 @@ function LoginPage() {
         type="text"
       />
       <TextField
+        name="email"
+        onChange={handleChange}
+        value={formValues["email"]}
+        label="Email"
+        fullWidth
+        autoFocus
+        type="email"
+      />
+      <TextField
         name="password"
         onChange={handleChange}
         value={formValues["password"]}
@@ -58,13 +68,13 @@ function LoginPage() {
           justifyContent: "space-between",
         }}
       >
-        <Link component={RouterLink} to="/register">
-          Haven't an account?
+        <Link component={RouterLink} to="/login">
+          Already have an account?
         </Link>
-        <Button onClick={handleLogin}>Login</Button>
+        <Button onClick={handleRegister}>Register</Button>
       </Box>
     </Paper>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
