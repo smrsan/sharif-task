@@ -5,7 +5,7 @@ interface ITask {
   id?: number;
   name: string;
   status: "todo" | "doing" | "done";
-  date: Date;
+  date: string;
 }
 
 interface ITasksState {
